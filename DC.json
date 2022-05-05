@@ -1,0 +1,52 @@
+{
+  "builders": [
+    {
+      "type": "vmware-iso",
+      "iso_url": "{{user `iso_url`}}",
+	  "iso_checksum": "{{user `iso_checksum`}}",
+	  "output_directory": "./machines/DC/temp_build_location",
+      "headless": true,
+	  "communicator": "winrm",
+      "boot_wait": "2m",
+	  "vm_name": "DC",
+      "winrm_username": "vagrant",
+      "winrm_password": "vagrant",
+      "ssh_wait_timeout": "30m",
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "guest_os_type": "windows8srv-64",
+      "disk_size": 61440,
+      "vnc_port_min": 5900,
+      "vnc_port_max": 5980,
+      "floppy_files": [
+        "{{user `autounattend`}}",
+        "./machines/DC/DC_Set_IP.ps1",
+		"./machines/DC/setAD.ps1",
+		"./machines/DC/Invoke-BadBlood.zip"			
+      ],
+	  
+	  
+      "vmx_data": {
+        "RemoteDisplay.vnc.enabled": "false",
+        "RemoteDisplay.vnc.port": "5900",
+        "memsize": "4096",
+        "numvcpus": "2",
+        "scsi0.virtualDev": "lsisas1068"
+      }
+    }
+  ],
+
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "./machines/DC/DC.box",
+	  "vagrantfile_template": "./machines/DC/DC_vagrant_file.template"
+    }
+  ],
+  "variables": {
+    "iso_url": "./iso/Windows_Server_2016_Datacenter_EVAL_en-us_14393_refresh.iso",
+    "iso_checksum_type": "sha1",
+    "iso_checksum": "772700802951B36C8CB26A61C040B9A8DC3816A3",
+    "autounattend": "./machines/DC/Autounattend.xml"
+  }
+}
