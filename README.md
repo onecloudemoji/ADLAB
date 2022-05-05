@@ -8,6 +8,9 @@ TLDR
 
 ```vagrant up```
 
+![Alt Text](https://raw.githubusercontent.com/onecloudemoji/onecloudemoji.github.io/master/assets/images/98c1e9fd-c564-431d-96e6-a93d93fb5c61_text.gif)
+
+https://github.com/onecloudemoji/onecloudemoji.github.io/blob/master/assets/images/98c1e9fd-c564-431d-96e6-a93d93fb5c61_text.gif
 
 Packer and Vagrant combo to bring up a domain controller populated by BadBlood.
 
