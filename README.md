@@ -1,5 +1,12 @@
 # ADLAB
 
+TLDR
+
+packer build DC.json
+vagrant box add DC file://EXPLICIT LOCATION YOU CREATED THE BOX INCLUDING DRIVE LETTER/DC.box
+vagrant up
+
+
 Packer and Vagrant combo to bring up a domain controller populated by BadBlood.
 
 As one would assume, you need to install Vagrant. You also need to install the plugin, by running ````vagrant plugin install vagrant-vmware-desktop````. You then also need this. I dont recall why you need both and I dont care to find out. https://www.vagrantup.com/docs/providers/vmware/vagrant-vmware-utility
