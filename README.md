@@ -2,9 +2,11 @@
 
 TLDR
 
-packer build DC.json
-vagrant box add DC file://EXPLICIT LOCATION YOU CREATED THE BOX INCLUDING DRIVE LETTER/DC.box
-vagrant up
+```packer build DC.json```
+
+```vagrant box add DC file://EXPLICIT LOCATION YOU CREATED THE BOX INCLUDING DRIVE LETTER/DC.box```
+
+```vagrant up```
 
 
 Packer and Vagrant combo to bring up a domain controller populated by BadBlood.
